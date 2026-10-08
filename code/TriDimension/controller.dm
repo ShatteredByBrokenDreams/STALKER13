@@ -20,11 +20,13 @@
 					if(istype(belower, /turf/simulated/floor/open))
 						var/turf/belowerer = locate(belower.x, belower.y, belower.z-1)
 						if(istype(belowerer, /turf/simulated/floor/open))
-							var/turf/belowerer2 = locate(belower.x, belower.y, belower.z-1)
+							var/turf/belowerer2 = locate(belowerer.x, belowerer.y, belowerer.z-1)
+							if(istype(belowerer2, /turf/simulated/floor/open))
+								T.vis_contents += belowerer2
+							else
+								T.vis_contents += belowerer2
 						else
 							T.vis_contents += belowerer
-					else
-						T.vis_contents += belower
 				if(!istype(below, /turf/simulated/floor/open))
 					T.vis_contents += below
 		global_openspace -= T

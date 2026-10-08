@@ -620,7 +620,6 @@
 			src.item_state = "[initial(item_state)]"
 			if(blooded_icon)
 				src.item_state = "[initial(item_state)+blood_suffix]"
-	..()
 
 // called just as an item is picked up (loc is not yet changed)
 /obj/item/proc/pickup(mob/user, var/togglesound)

@@ -311,7 +311,6 @@
 	return
 */
 /atom/proc/AltRightClick(var/mob/user)
-	..()
 	if(!istype(user))
 		return
 	if(user.lying)
@@ -325,7 +324,6 @@
 	A.CtrlRightClick(src)
 
 /atom/proc/CtrlRightClick(var/mob/user)
-	..()
 	if(!istype(user))
 		return
 	if(user.lying)

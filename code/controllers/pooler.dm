@@ -1,8 +1,8 @@
 // Pooler subsystem. This is the process we will use to pool async jobs for completion and call a proc when they do eventually complete.
 
 // I suck at program design and thus this should be considered rudimentary at best -- whatever /tg/ had in 2014 is still better than this.
-#define poll json_decode(call("ByondSharpNE", "PollJobs")())["Data"]
-#define get_async_result(options) json_decode(call("ByondSharpNE", "GetResult")(options))["Data"]
+#define poll json_decode(call_ext("ByondSharpNE", "PollJobs")())["Data"]
+#define get_async_result(options) json_decode(call_ext("ByondSharpNE", "GetResult")(options))["Data"]
 
 var/global/datum/controller/Pooler/Pooler = new
 
@@ -26,11 +26,11 @@ var/global/datum/controller/Pooler/Pooler = new
 				call(id)(get_async_result(job_ids[id][1]))
 				job_ids -= id
 	for(var/procs in procs_to_fire) // iterate through all the pending async procs whose result we don't give a shit about
-		call("ByondSharpNE", procs)(procs_to_fire[procs]) // call the proc, don't bother storing the job ids for pooling
+		call_ext("ByondSharpNE", procs)(procs_to_fire[procs]) // call the proc, don't bother storing the job ids for pooling
 		procs_to_fire -= procs // we have called it, get rid of it so we don't call it again
 
 /datum/controller/Pooler/proc/Enqueue(var/proc/callback, var/async_proc as text, var/arguments, var/proc_owner)
-	var/id = json_decode(call("ByondSharpNE", async_proc)(arguments))["Data"]
+	var/id = json_decode(call_ext("ByondSharpNE", async_proc)(arguments))["Data"]
 	job_ids[callback] = list(id, proc_owner) // lists inside lists make my head hurt but god i don't think theres a better solution for it
 
 /proc/async_call(var/callback, var/async_proc, var/list/arguments, var/proc_owner, var/ff) // global proc to make async calls. don't use for synchronous calls

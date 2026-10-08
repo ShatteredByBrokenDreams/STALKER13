@@ -194,7 +194,6 @@
 				return 1
 	proc/process()
 		set background = 1
-		..()
 		if(client)
 			return FALSE
 

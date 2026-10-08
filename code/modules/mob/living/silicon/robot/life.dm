@@ -173,8 +173,8 @@
 	var/obj/item/borg/sight/hud/hud = (locate(/obj/item/borg/sight/hud) in src)
 	if(hud && hud.hud)	hud.hud.process_hud(src)
 
-	if (src.healths)
-		if (src.stat != 2)
+	if(src.healths)
+		if(src.stat != 2)
 			switch(health)
 				if(200 to INFINITY)
 					src.healths.icon_state = "health0"
@@ -186,10 +186,11 @@
 					src.healths.icon_state = "health3"
 				if(0 to 50)
 					src.healths.icon_state = "health4"
-				if(config.health_threshold_dead to 0)
-					src.healths.icon_state = "health5"
 				else
-					src.healths.icon_state = "health6"
+					if(health >= config.health_threshold_dead)
+						src.healths.icon_state = "health5"
+					else
+						src.healths.icon_state = "health6"
 		else
 			src.healths.icon_state = "health7"
 

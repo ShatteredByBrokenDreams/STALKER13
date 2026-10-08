@@ -90,13 +90,13 @@
 
 #define ceil(x) (-round(-(x)))
 
-#define hash_password(options) json_decode(call("ByondSharpNE", "Hash")(options))["Data"]
-#define verify_password(option1, option2) json_decode(call("ByondSharpNE", "VerifyPassword")(option1, option2))["Data"]
-#define init_discord json_decode(call("ByondSharpNE", "Initialize")())["Data"]
-#define send_roundend_embed json_decode(call("ByondSharpNE", "OnRoundEnd")(current_server))["Data"]
-#define send_roundstart_embed json_decode(call("ByondSharpNE", "OnRoundStart")(current_server, "[world.port]"))["Data"]
-#define register_user(options) json_decode(call("ByondSharpNE", "HandleRegistration")(options))["Data"]
-#define do_discord_ban(options) json_decode(call("ByondSharpNE","HandleBan")(options))["Data"]
+#define hash_password(options) json_decode(call_ext("ByondSharpNE", "Hash")(options))["Data"]
+#define verify_password(option1, option2) json_decode(call_ext("ByondSharpNE", "VerifyPassword")(option1, option2))["Data"]
+#define init_discord json_decode(call_ext("ByondSharpNE", "Initialize")())["Data"]
+#define send_roundend_embed json_decode(call_ext("ByondSharpNE", "OnRoundEnd")(current_server))["Data"]
+#define send_roundstart_embed json_decode(call_ext("ByondSharpNE", "OnRoundStart")(current_server, "[world.port]"))["Data"]
+#define register_user(options) json_decode(call_ext("ByondSharpNE", "HandleRegistration")(options))["Data"]
+#define do_discord_ban(options) json_decode(call_ext("ByondSharpNE","HandleBan")(options))["Data"]
 
 #define EGG_DELAY 5 MINUTES
 #define SPIT_DELAY 16 SECONDS

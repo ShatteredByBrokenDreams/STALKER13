@@ -59,7 +59,6 @@
 		M.emote("gasp")
 
 /obj/structure/fire/proc/updateFire()
-	. = ..()
 	if(!isturf(loc)) return
 	var/turf/simulated/T = loc
 	if(!T.burnAble)

@@ -126,7 +126,6 @@ Implants;
 
 
 /datum/game_mode/proc/declare_completion()
-	. = ..()
 	var/amountswon = 0 // 1 ele existia 2 ele existia mas falhou 3 ele existia e foi bem sucedido
 	var/mob/living/tiamatrait = null
 	for(var/mob/living/carbon/human/H in mob_list)
