@@ -446,7 +446,7 @@ var/aspects_max = 3
 					dat += "<a href='byond://?src=\ref[src];SelectedJob=[job.title]'>[job.title] ([job.current_positions])</a><br>"
 
 		dat += "</body></html>"
-		src << browse(dat, "window=outputwindow.browser")
+		src << browse(dat, "window=outputwindow.browseroutput")
 
 	proc/Joining_War()
 		var/mills = world.time // 1/10 of a second, not real milliseconds but whatever
@@ -469,7 +469,7 @@ var/aspects_max = 3
 		for(var/side_name in War_Teams)
 			dat += "<a href='byond://?src=\ref[src];SelectedJob=[side_name]'>Join [side_name]s Team!</a><br>"
 		dat += "</body></html>"
-		src << browse(dat, "window=outputwindow.browser")
+		src << browse(dat, "window=outputwindow.browseroutput")
 
 	proc/create_character(var/joined_late = 0)
 		spawning = 1
