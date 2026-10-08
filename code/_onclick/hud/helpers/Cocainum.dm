@@ -21,7 +21,7 @@
 
 /obj/proc/cocainum_shake_loop(var/mob/M)
 	set waitfor = 0
-	for(var/i; i<= 2000, i++)
+	for(var/i; i<= 2000; i++)
 		cocainum_shake()
 		sleep(1.5)
 

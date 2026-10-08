@@ -173,7 +173,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				flick("protolathe_n",linked_lathe)
 				use_power(power)
 
-				for(var/i=1,i<amount+1;i++)
+				for(var/i=1;i<amount+1;i++)
 					for(var/M in being_built.materials)
 						if(!linked_lathe.check_mat(being_built, M))
 							src.visible_message("<span class='notice'>The [src.name] beeps, \"Not enough materials to complete all prototypes.\"</span>")

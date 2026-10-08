@@ -1,4 +1,21 @@
 environment = "farweb.dme"
 
+[langserver]
+dreamchecker = false
+
+[diagnostics]
+proc_has_no_parent = "off"
+var_in_proc_parameter = "off"
+redefined_proc = "off"
+macro_redefined = "off"
+duplicate_include = "off"
+as_local_var = "off"
+tmp_no_effect = "off"
+macro_undefined_no_definition = "off"
+in_precedes_as = "off"
+
 [debugger]
 engine = "auxtools"
+
+[display]
+error_level = "error"

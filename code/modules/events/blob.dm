@@ -16,7 +16,7 @@
 		kill()
 		return
 	Blob = new /obj/effect/blob/core(T, 200)
-	for(var/i = 1; i < rand(3, 6), i++)
+	for(var/i = 1; i < rand(3, 6); i++)
 		Blob.process()
 
 
