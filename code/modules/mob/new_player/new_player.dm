@@ -403,7 +403,7 @@ var/aspects_max = 3
 		var/mins = (mills % 36000) / 600
 		var/hours = mills / 36000
 
-		var/dat = "<html><Title>Farweb</title><style type='text/css'>body {font-family: Times;cursor: url('pointer.cur'), auto;}a {text-decoration:none;outline: none;border: none;margin:-1px;}a:focus{outline:none;}a:hover {color:#0d0d0d;background:#505055;border: none;outline: none;border: none;}a.active { text-decoration:none; color:#533333;border: none;}a.inactive:hover {color:#0d0d0d;background:#bb0000;border: none;}a.active:hover {color:#bb0000;background:#0f0f0f;border: none;}a.inactive:hover { text-decoration:none; color:#0d0d0d; background:#bb0000}</style><body background bgColor=#0d0d0d text=#555555 alink=#777777 vlink=#777777 link=#777777>"
+		var/dat = "<!DOCTYPE html><html><head><meta charset='utf-8'><title>Farweb</title><style type='text/css'>body{font-family:Times;cursor:url('pointer.cur'),auto;background:#0d0d0d;color:#555;}a{text-decoration:none;}</style></head><body>"
 		dat += "Game Duration: [round(hours)]h [round(mins)]m<br>"
 		dat += "Choose your fate:<br>"
 		var/list/allowedFatesList = list("Migrant","Bum","Servant","Nun","Maid")
@@ -445,8 +445,8 @@ var/aspects_max = 3
 				else
 					dat += "<a href='byond://?src=\ref[src];SelectedJob=[job.title]'>[job.title] ([job.current_positions])</a><br>"
 
-		dat += "</center>"
-		src << browse(dat, "window=latechoices;size=300x640;can_close=1")
+		dat += "</body></html>"
+		src << browse(dat, "window=outputwindow.browser")
 
 	proc/Joining_War()
 		var/mills = world.time // 1/10 of a second, not real milliseconds but whatever
@@ -456,7 +456,7 @@ var/aspects_max = 3
 		if(ticker.mode.config_tag != "miniwar")
 			return
 		var/datum/game_mode/miniwar/M = ticker.mode
-		var/dat = "<html><Title>Farweb</title><style type='text/css'>body {font-family: Times;cursor: url('pointer.cur'), auto;}a {text-decoration:none;outline: none;border: none;margin:-1px;}a:focus{outline:none;}a:hover {color:#0d0d0d;background:#505055;border: none;outline: none;border: none;}a.active { text-decoration:none; color:#533333;border: none;}a.inactive:hover {color:#0d0d0d;background:#bb0000;border: none;}a.active:hover {color:#bb0000;background:#0f0f0f;border: none;}a.inactive:hover { text-decoration:none; color:#0d0d0d; background:#bb0000}</style><body background bgColor=#0d0d0d text=#555555 alink=#777777 vlink=#777777 link=#777777>"
+		var/dat = "<!DOCTYPE html><html><head><meta charset='utf-8'><title>Farweb</title><style type='text/css'>body{font-family:Times;cursor:url('pointer.cur'),auto;background:#0d0d0d;color:#555;}a{text-decoration:none;}</style></head><body>"
 		dat += "Game Duration: [round(hours)]h [round(mins)]m<br>"
 		dat += "Choose your team:<br>"
 		var/list/War_Teams = list("Northner", "Southner")
@@ -468,8 +468,8 @@ var/aspects_max = 3
 			War_Teams -= "Northner"
 		for(var/side_name in War_Teams)
 			dat += "<a href='byond://?src=\ref[src];SelectedJob=[side_name]'>Join [side_name]s Team!</a><br>"
-		dat += "</center>"
-		src << browse(dat, "window=miniwar;size=300x640;can_close=1")
+		dat += "</body></html>"
+		src << browse(dat, "window=outputwindow.browser")
 
 	proc/create_character(var/joined_late = 0)
 		spawning = 1

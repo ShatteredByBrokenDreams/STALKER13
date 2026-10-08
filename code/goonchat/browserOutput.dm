@@ -26,7 +26,7 @@ GLOBAL_DATUM_INIT(iconCache, /savefile, new("data/iconCache.sav")) //Cache of ic
 	if(!owner)
 		return FALSE
 
-	if(!winexists(owner, "browseroutput")) // Oh goddamnit.
+	if (!winexists(owner, "outputwindow.browseroutput"))
 		set waitfor = FALSE
 		broken = TRUE
 		message_admins("Couldn't start chat for [key_name_admin(owner)]!")
@@ -50,8 +50,6 @@ GLOBAL_DATUM_INIT(iconCache, /savefile, new("data/iconCache.sav")) //Cache of ic
 	var/datum/asset/stuff = get_asset_datum(/datum/asset/goonchat)
 	stuff.register()
 	stuff.send(owner)
-
-	owner << browse(file('code/modules/goonchat/browserassets/html/browserOutput.html'), "window=browseroutput")
 
 /datum/chatOutput/Topic(href, list/href_list)
 	if(usr.client != owner)
@@ -107,8 +105,7 @@ GLOBAL_DATUM_INIT(iconCache, /savefile, new("data/iconCache.sav")) //Cache of ic
 	pingLoop()
 
 /datum/chatOutput/proc/showChat()
-	winset(owner, "output", "is-visible=false")
-	winset(owner, "browseroutput", "is-disabled=false;is-visible=true")
+	winset(owner, "outputwindow.browseroutput", "is-disabled=false;is-visible=true")
 
 /datum/chatOutput/proc/pingLoop()
 	set waitfor = FALSE

@@ -428,12 +428,11 @@ window "outputwindow"
 		saved-params = ""
 	elem "browseroutput"
 		type = BROWSER
-		pos = 0,316
-		size = 640x348
+		pos = 0,0
+		size = 640x714
 		anchor1 = 0,0
 		anchor2 = 100,100
-		background-color = #ffffff
-		is-visible = false
+		background-color = #060606
 		saved-params = ""
 	elem "saybox"
 		type = INPUT
@@ -503,7 +502,7 @@ window "rpane"
 		anchor1 = 0,0
 		anchor2 = 100,100
 		saved-params = "splitter"
-		left = "infowindow"
+		left = "mapwindow"
 		right = "outputwindow"
 		is-vert = false
 		splitter = 30
