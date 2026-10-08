@@ -1,1 +1,12 @@
-farweb.rsc
+# Build output
+*.dmb
+*.rsc
+
+# Runtime data
+data/logs/
+data/player_saves/
+
+# BYOND junk
+*.lk
+*.int
+*.dme.bak
