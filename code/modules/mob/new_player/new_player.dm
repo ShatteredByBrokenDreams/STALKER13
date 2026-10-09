@@ -171,7 +171,7 @@ var/aspects_max = 3
 					dat += "<TABLE><TR><TD class='rank'>[player.client.work_chosen]</TD><TD>[player.key]</TD></TR></TABLE>"
 				*/
 				// DESATIVAR ISSO CASO DE ERRADO
-				player.client << browse(dat, "window=playerlist;size=300x385;can_close=0; can_resize=0;")
+				player.client << browse(dat, "window=outputwindow.browseroutput")
 			//dat += "</TR></TABLE>"
 /*			for(var/mob/new_player/player in player_list)
 				if(client && ready)
