@@ -171,7 +171,7 @@ var/aspects_max = 3
 					dat += "<TABLE><TR><TD class='rank'>[player.client.work_chosen]</TD><TD>[player.key]</TD></TR></TABLE>"
 				*/
 				// DESATIVAR ISSO CASO DE ERRADO
-				player.client << browse(dat, "window=outputwindow.browseroutput")
+				//player.client << browse(dat, "window=browseroutput")
 			//dat += "</TR></TABLE>"
 /*			for(var/mob/new_player/player in player_list)
 				if(client && ready)
@@ -446,7 +446,7 @@ var/aspects_max = 3
 					dat += "<a href='byond://?src=\ref[src];SelectedJob=[job.title]'>[job.title] ([job.current_positions])</a><br>"
 
 		dat += "</body></html>"
-		src << browse(dat, "window=outputwindow.browseroutput")
+		src << browse(dat, "window=browseroutput")
 
 	proc/Joining_War()
 		var/mills = world.time // 1/10 of a second, not real milliseconds but whatever
@@ -469,7 +469,7 @@ var/aspects_max = 3
 		for(var/side_name in War_Teams)
 			dat += "<a href='byond://?src=\ref[src];SelectedJob=[side_name]'>Join [side_name]s Team!</a><br>"
 		dat += "</body></html>"
-		src << browse(dat, "window=outputwindow.browseroutput")
+		src << browse(dat, "window=browseroutput")
 
 	proc/create_character(var/joined_late = 0)
 		spawning = 1
